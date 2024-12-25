@@ -666,11 +666,8 @@ export class ReactNativeModal extends React.Component<ModalProps, State> {
         .then(() => {
           this.isTransitioning = false;
           if (this.interactionHandle) {
-            // fix ios crashing 
-                setTimeout(() => {
                     InteractionManager.clearInteractionHandle(this.interactionHandle);
                     this.interactionHandle = null;
-                }, 50)
           }
           if (this.props.isVisible) {
             this.open();
